@@ -11,9 +11,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/wiki/:page_url',function(req,res,next){
 	var page_url = req.params.page_url;
-	Page.findOne({url_name:page_url}, function(err, data){
-		res.render('show',{page:data});
+	Page.findOne( { url_name: page_url }, function(err, data){
+		var tags = data.tags.join(' ')
+		res.render('show',{page: data, tags: tags});
 	});
+})
+
+router.get('/similar/:page_tag', function(req,res,next){
+	var tag = req.params.page_tag
+	Page.find( {tags: { $in: [tag] } }, function(err, data){
+		res.render('tag', {pages: data})
+	})
 })
 
 module.exports = router;

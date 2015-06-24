@@ -3,6 +3,8 @@
   <head>
     <title>{% block title %}WikiStack{% endblock %}</title>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <!--     <link rel="stylesheet" href="/stylesheets/style.css"> -->
   </head>
   <body>
@@ -10,11 +12,11 @@
 		  <div class="container navbar-left">
 		  	<a class="navbar-brand" href="/">Wikistack</a>
 		    <a class="navbar-text" href="/add">Add Page</a>
-        <form class="navbar-form form-inline" role="search">
+        <form class="navbar-form form-inline" role="search" action="/search">
           <div class="form-group col-xs-8" style="padding-left: 50px">
-            <input type="text" class="form-control input-sm" placeholder="Search for a page">
+            <input type="text" name="search_title" class="form-control input-sm" placeholder="Search for a page">
           </div>
-          <button class="btn btn-default btn-sm" href="#">Submit</button>
+          <button class="btn btn-default btn-sm">Search</button>
         </form>
 		  </div>
 		</nav>

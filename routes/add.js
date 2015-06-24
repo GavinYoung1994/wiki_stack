@@ -8,8 +8,12 @@ router.get('/', function(req, res) {
 
 router.post('/submit',function(req, res){
 	var models = require('../models/');
-	var title=req.body.page_title;
-	var content=req.body.page_content;
+	var title = req.body.page_title;
+  var tags;
+  if (req.body.page_tags) {
+    tags = req.body.page_tags.split(' ')
+  }
+	var content = req.body.page_content;
 	var generateUrlName = function(name) {
 	  if (typeof name != "undefined" && name !== "") {
 	    return name.replace(/\s/ig, '_').replace(/\W/ig,'');
@@ -19,7 +23,7 @@ router.post('/submit',function(req, res){
 	  }
 	};
 	var url_name = generateUrlName(title);
-	var page = new models.Page({ 'title': title, 'content': content, 'url_name': url_name });
+	var page = new models.Page({ 'title': title, 'content': content, 'url_name': url_name, 'tags': tags });
 	page.save();
 	res.redirect('/');
 });
