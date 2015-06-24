@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>{% block title %}WikiStack{% endblock %}</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<!--     <link rel="stylesheet" href="/stylesheets/style.css"> -->
+  </head>
+  <body>
+  		<nav class="navbar navbar-inverse navbar-static-top">
+		  <div class="container navbar-left">
+		  	<a class="navbar-brand" href="/">Wikistack</a>
+		    <button type="button" class="btn btn-default navbar-btn">Add Page</button>
+		  </div>
+		</nav>
+    <div class = "col-xs-8">
+      {% block content %}{% endblock %}
+      <nav class = "navbar navbar-static-bottom">
+        <p></p>
+  	    <p>&copy Wikistack, Fullstack Academy</p>
+  	 </nav>
+    </div>
+  </body>
+</html>

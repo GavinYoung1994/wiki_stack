@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>This is our Wikistack</h1>
+  </div>
+    <ul>
+	  {% for doc in docs %}
+	    <li><a href={{doc.full_route}}>{{ doc.title }}</a></li>
+	  {% endfor %}
+	</ul>
+{% endblock %}
